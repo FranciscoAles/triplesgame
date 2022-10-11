@@ -19,10 +19,6 @@ function gridItem(element, x, y, checkbox, label) {
     this.label = label;
     
     this.checkbox.addEventListener("input", itemChecked);
-    
-    this.fadeOut = function() {
-        this.item.style.display = "none";
-    };
 }
 
 // we need to create the items every time the game restarts
@@ -117,9 +113,7 @@ function itemChecked(event) {
         let last = getLastPair(first, second);
         
         if (last[0] == third[0] && last[1] == third[1]) {
-            for (let i of checkedArray) {
-                i.fadeOut();
-            }
+            
         }
     }
 }
