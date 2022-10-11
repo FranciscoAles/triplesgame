@@ -10,7 +10,7 @@ let numberArray = [];
 let grid = document.getElementById("grid-container");
 let title = document.getElementById("title");
 
-// each item of the grid needs its own properties
+// each item of the grid needs its own properties and stuff
 function gridItem(element, x, y, checkbox, label) {
     this.item = element;
     this.x = x;
