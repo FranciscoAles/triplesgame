@@ -5,6 +5,7 @@ let columnCount = 12;
 let checkCount = 0;
 let checkedArray = [];
 let numberArray = [];
+let completedCount = 0;
 
 // main elements of website
 let grid = document.getElementById("grid-container");
@@ -19,6 +20,17 @@ function gridItem(element, x, y, checkbox, label) {
     this.label = label;
     
     this.checkbox.addEventListener("input", itemChecked);
+    
+    this.fadeOut = function() {
+        this.label.style.animation = "fadeOut 0.5s forwards";
+        this.checkbox.disabled = true;
+        this.label.style.cursor = "default";
+        completedCount++;
+        
+        if (completedCount == gridItemArray.length) {
+            alert("YOU WON!");
+        }
+    };
 }
 
 // we need to create the items every time the game restarts
@@ -113,7 +125,13 @@ function itemChecked(event) {
         let last = getLastPair(first, second);
         
         if (last[0] == third[0] && last[1] == third[1]) {
+            for (let i of checkedArray) {
+                i.fadeOut();
+                i.checkbox.checked = false;
+            }
             
+            checkCount = 0;
+            checkArray = [];
         }
     }
 }
@@ -135,7 +153,7 @@ function getLastPair(pair1, pair2) {
   }
   
   if (pair3[0] > pair3[1]) {
-  	[pair3[0], pair3[1]] = [pair3[1], pair3[0]];
+    [pair3[0], pair3[1]] = [pair3[1], pair3[0]];
   }
   
   return pair3;
