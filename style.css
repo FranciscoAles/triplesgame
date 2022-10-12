@@ -42,7 +42,8 @@ body {
 }
 
 .grid-item {
-    margin: auto;
+    background-color: #898b8c;
+    border-radius: 4px;
 }
 
 .grid-item > input {
@@ -61,12 +62,12 @@ body {
     justify-content: center;
     font-weight: 900;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .grid-item > label:hover {
     background: darkred;
     color: white;
-    cursor: pointer;
 }
 
 .grid-item > input:checked ~ label {
@@ -78,4 +79,14 @@ body {
 .grid-item > input:checked ~ label:hover {
     color: var(--cornerstone);
     box-shadow: 0px 0px 2px gold;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
 }
