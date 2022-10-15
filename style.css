@@ -59,25 +59,25 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 2px;
-    background: var(--red);
+    background-color: var(--red);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 100;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, opacity 0.2s;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.grid-item > label:hover {
+    opacity: 0.8;
+}
+
 .brace {
     font-size: 1.5em;
     margin: 1px;
-}
-
-.grid-item > label:hover {
-    opacity: 0.8;
 }
 
 .grid-item > input:checked ~ label {
@@ -91,12 +91,11 @@ body {
     box-shadow: 0px 0px 2px gold;
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    
+@keyframes disable {
     100% {
-        opacity: 0;
+        background-color: var(--cornerstone);
+        color: black;
+        opacity: 0.8;
+        cursor: not-allowed;
     }
 }

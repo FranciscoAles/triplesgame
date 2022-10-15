@@ -21,8 +21,8 @@ function gridItem(element, x, y, checkbox, label) {
     
     this.checkbox.addEventListener("input", itemChecked);
     
-    this.fadeOut = function() {
-        this.label.style.animation = "fadeOut 0.5s forwards";
+    this.disable = function() {
+        this.label.style.animation = "disable 0.5s forwards";
         this.checkbox.disabled = true;
         this.label.style.cursor = "default";
         completedCount++;
@@ -131,7 +131,7 @@ function itemChecked(event) {
         
         if (last[0] == third[0] && last[1] == third[1]) {
             for (let i of checkedArray) {
-                i.fadeOut();
+                i.disable();
                 i.checkbox.checked = false;
             }
             
