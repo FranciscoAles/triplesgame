@@ -28,7 +28,7 @@ function gridItem(element, x, y, checkbox, label) {
         completedCount++;
         
         if (completedCount == gridItemArray.length) {
-            alert("YOU WON!");
+            alert("YOU WON! Good job!\nRefresh the page to try again.");
         }
     };
 }
@@ -52,7 +52,7 @@ function createItems(numberOfColumns) {
             
             let checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            let cbid = ("point" + x) + y;
+            let cbid = ("set" + x) + y;
             checkbox.id = cbid;
             element.appendChild(checkbox);
             
@@ -101,6 +101,8 @@ function size() {
 
 window.addEventListener("resize", size);
 size();
+// just in case, let's do it again
+size();
 
 // this function is called when any input is checked
 function itemChecked(event) {
@@ -127,7 +129,7 @@ function itemChecked(event) {
         let first = [checkedArray[0].x, checkedArray[0].y];
         let second = [checkedArray[1].x, checkedArray[1].y];
         let third = [checkedArray[2].x, checkedArray[2].y];
-        let last = getLastPair(first, second);
+        let last = getLastSet(first, second);
         
         if (last[0] == third[0] && last[1] == third[1]) {
             for (let i of checkedArray) {
@@ -141,25 +143,25 @@ function itemChecked(event) {
     }
 }
 
-// this function get's the last pair of a set when given the first two
-function getLastPair(pair1, pair2) {
-  let pair3 = [];
+// this function get's the last set of a set when given the first two
+function getLastSet(set1, set2) {
+  let set3 = [];
 
-  if (pair1[0] == pair2[0]) {
-    pair3.push(pair1[1], pair2[1]);
-  } else if (pair1[0] == pair2[1]) {
-    pair3.push(pair1[1], pair2[0]);
-  } else if (pair1[1] == pair2[0]) {
-    pair3.push(pair1[0], pair2[1]);
-  } else if (pair1[1] == pair2[1]) {
-    pair3.push(pair1[0], pair2[0]);
+  if (set1[0] == set2[0]) {
+    set3.push(set1[1], set2[1]);
+  } else if (set1[0] == set2[1]) {
+    set3.push(set1[1], set2[0]);
+  } else if (set1[1] == set2[0]) {
+    set3.push(set1[0], set2[1]);
+  } else if (set1[1] == set2[1]) {
+    set3.push(set1[0], set2[0]);
   } else {
   	return undefined;
   }
   
-  if (pair3[0] > pair3[1]) {
-    [pair3[0], pair3[1]] = [pair3[1], pair3[0]];
+  if (set3[0] > set3[1]) {
+    [set3[0], set3[1]] = [set3[1], set3[0]];
   }
   
-  return pair3;
+  return set3;
 }

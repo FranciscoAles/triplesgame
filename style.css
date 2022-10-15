@@ -64,7 +64,7 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: 100;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s, opacity 0.2s;
+    transition: color 0.5s, box-shadow 0.5s, opacity 0.5s;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -87,8 +87,8 @@ body {
 }
 
 .grid-item > input:checked ~ label:hover {
-    color: var(--cornerstone);
-    box-shadow: 0px 0px 2px gold;
+    opacity: 0.8;
+    box-shadow: none;
 }
 
 @keyframes disable {
