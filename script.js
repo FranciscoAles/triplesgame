@@ -57,7 +57,7 @@ function createItems(numberOfColumns) {
             element.appendChild(checkbox);
             
             let label = document.createElement("label");
-            label.textContent = x + ", " + y;
+            label.innerHTML = `<span class='brace'>{</span>${x}, ${y}<span class='brace'>}</span>`;
             label.htmlFor = cbid;
             element.appendChild(label);
             
@@ -77,19 +77,22 @@ function size() {
     let gdWidth = grid.offsetWidth;
     grid.style.height = gdHeight + "px";
     let itemWidth;
+    let itemHeight;
 
-    if (gdHeight > gdWidth) {
-        itemWidth = gdWidth / (columnCount * 1.1);
+    if (gdWidth > gdHeight) {
+        itemHeight = gdHeight / (columnCount * 1.1);
+        itemWidth = itemHeight * 1.2;
     } else {
-        itemWidth = gdHeight / (columnCount * 1.1);
+        itemWidth = gdWidth / (columnCount * 1.1);
+        itemHeight = itemWidth;
     }
     
-    let itemFontSize = itemWidth / 3;
+    let itemFontSize = itemWidth / 4;
     
     for (let i = 0; i < gridItemArray.length; i++) {
         let elmnt = gridItemArray[i].item;
         elmnt.style.width = itemWidth + "px";
-        elmnt.style.height = itemWidth + "px";
+        elmnt.style.height = itemHeight + "px";
         elmnt.style.fontSize = itemFontSize + "px";
     }
 }
@@ -131,7 +134,7 @@ function itemChecked(event) {
             }
             
             checkCount = 0;
-            checkArray = [];
+            checkedArray = [];
         }
     }
 }
