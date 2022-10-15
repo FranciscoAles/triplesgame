@@ -51,6 +51,7 @@ body {
 }
 
 .grid-item > label {
+    color: white;
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -60,14 +61,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
+    font-weight: 100;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brace {
+    font-size: 1.5em;
+    margin: 1px;
 }
 
 .grid-item > label:hover {
-    background: darkred;
-    color: white;
+    opacity: 0.8;
 }
 
 .grid-item > input:checked ~ label {
