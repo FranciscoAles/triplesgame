@@ -73,7 +73,9 @@ createItems(columnCount);
 // we need to size everything perfectly, and this function will let us do that
 function size() {
     title.style.fontSize = 0.05 * window.innerHeight + "px";
-    let gdHeight = window.innerHeight - title.offsetHeight;
+    grid.style.marginTop = title.offsetHeight / 2 + "px";
+    grid.style.marginBottom = title.offsetHeight / 2 + "px";
+    let gdHeight = window.innerHeight - title.offsetHeight * 2;
     let gdWidth = grid.offsetWidth;
     grid.style.height = gdHeight + "px";
     let itemWidth;
