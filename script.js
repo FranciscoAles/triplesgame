@@ -9,7 +9,7 @@ let completedCount = 0;
 
 // main elements of website
 let grid = document.getElementById("grid-container");
-let title = document.getElementById("title");
+let bar = document.getElementById("bar");
 
 // each item of the grid needs its own properties and stuff
 function gridItem(element, x, y, checkbox, label) {
@@ -72,10 +72,10 @@ createItems(columnCount);
 
 // we need to size everything perfectly, and this function will let us do that
 function size() {
-    title.style.fontSize = 0.05 * window.innerHeight + "px";
-    grid.style.marginTop = title.offsetHeight / 2 + "px";
-    grid.style.marginBottom = title.offsetHeight / 2 + "px";
-    let gdHeight = window.innerHeight - title.offsetHeight * 2;
+    bar.style.fontSize = 0.05 * window.innerHeight + "px";
+    grid.style.marginTop = bar.offsetHeight / 2 + "px";
+    grid.style.marginBottom = bar.offsetHeight / 2 + "px";
+    let gdHeight = window.innerHeight - bar.offsetHeight * 2;
     let gdWidth = grid.offsetWidth;
     grid.style.height = gdHeight + "px";
     let itemWidth;
@@ -164,4 +164,25 @@ function getLastSet(set1, set2) {
   }
   
   return set3;
+}
+
+// open fullscreen
+let fullButton = document.getElementById("fullscreen-button");
+fullButton.addEventListener("click", openFullscreen);
+let elem = document.documentElement;
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+}
+
+// open info
+let infoButton = document.getElementById("info-button");
+infoButton.addEventListener("click", openInfo);
+function openInfo() {
+    alert("This is a great website");
 }

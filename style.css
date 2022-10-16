@@ -12,26 +12,43 @@
 }
 
 body {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
     margin: 0px;
 }
 
+#bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--cornerstone);
+    align-items: center;
+    color: var(--red);
+    padding: 0.5%;
+}
+
+#bar > .material-symbols-outlined {
+    font-size: inherit;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 0.5%;
+    transition: background-color 0.2s;
+}
+
+#bar > .material-symbols-outlined:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 #title {
     text-align: center;
-    background-color: var(--cornerstone);
-    color: var(--red);
+    margin: 0px;
     text-shadow:
         -1px -1px 0 white,  
         1px -1px 0 white,
         -1px 1px 0 white,
         1px 1px 0 white;
-    margin: 0px;
     font-weight: 900;
-    font-size: 40px;
+    font-size: inherit;
 }
 
 #grid-container {
