@@ -179,8 +179,6 @@ function toggleFullscreen() {
         } else if (elem.msRequestFullscreen) { /* IE11 */
             elem.msRequestFullscreen();
         }
-
-        fullButton.textContent = "fullscreen_exit";
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -189,7 +187,23 @@ function toggleFullscreen() {
         } else if (document.msExitFullscreen) { /* IE11 */
         document.msExitFullscreen();
         }
+    }
+}
 
+// when fullscreen change is done:
+// Standard syntax
+document.addEventListener("fullscreenchange", fullscreenChange);
+// Firefox
+document.addEventListener("mozfullscreenchange", fullscreenChange);
+// Chrome, Safari and Opera
+document.addEventListener("webkitfullscreenchange", fullscreenChange);
+// IE / Edge
+document.addEventListener("msfullscreenchange", fullscreenChange);
+// function
+function fullscreenChange() {
+    if (screen.width == window.innerWidth && screen.height == window.innerHeight) {
+        fullButton.textContent = "fullscreen_exit";
+    } else {
         fullButton.textContent = "fullscreen";
     }
 }
