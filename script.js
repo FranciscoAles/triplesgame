@@ -168,15 +168,29 @@ function getLastSet(set1, set2) {
 
 // open fullscreen
 let fullButton = document.getElementById("fullscreen-button");
-fullButton.addEventListener("click", openFullscreen);
+fullButton.addEventListener("click", toggleFullscreen);
 let elem = document.documentElement;
-function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
+function toggleFullscreen() {
+    if (fullButton.textContent == "fullscreen") {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+
+        fullButton.textContent = "fullscreen_exit";
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+        }
+
+        fullButton.textContent = "fullscreen";
     }
 }
 
