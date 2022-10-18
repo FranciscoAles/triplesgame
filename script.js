@@ -210,7 +210,18 @@ function fullscreenChange() {
 
 // open info
 let infoButton = document.getElementById("info-button");
+let info = document.getElementById("info-popup");
+let overlay = document.getElementById("overlay");
 infoButton.addEventListener("click", openInfo);
 function openInfo() {
-    alert("This is a great website");
+    overlay.style.display = "block";
+    info.style.display = "block";
+}
+
+// close info
+let closeInfoButton = document.getElementById("close-info-button");
+closeInfoButton.addEventListener("click", closeInfo);
+function closeInfo() {
+    overlay.style.display = "none";
+    info.style.display = "none";
 }
