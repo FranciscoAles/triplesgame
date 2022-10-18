@@ -28,7 +28,7 @@ function gridItem(element, x, y, checkbox, label) {
         completedCount++;
         
         if (completedCount == gridItemArray.length) {
-            alert("YOU WON! Good job!\nRefresh the page to try again.");
+            alert("You won! Good job!\nRefresh the page to try again.");
         }
     };
 }
