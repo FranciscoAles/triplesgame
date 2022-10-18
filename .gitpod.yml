@@ -2,4 +2,5 @@
 tasks:
   - name: Terminal 1
     init: python -m http.server 8000
-    command: python -m http.server 8000
+  - name: Terminal 2
+    init: git init
