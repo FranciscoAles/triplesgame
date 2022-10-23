@@ -1,10 +1,8 @@
 // game variables
-let checkedCount = 0;
 let gridItemArray = [];
-let columnCount = 12;
+let columnCount = 6;
 let checkCount = 0;
 let checkedArray = [];
-let numberArray = [];
 let completedCount = 0;
 
 // main elements of website
@@ -28,7 +26,7 @@ function gridItem(element, x, y, checkbox, label) {
         completedCount++;
         
         if (completedCount == gridItemArray.length) {
-            alert("You won! Good job!\nRefresh the page to try again.");
+            openWinPopup();
         }
     };
 }
@@ -183,9 +181,9 @@ function toggleFullscreen() {
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullscreen) { /* Safari */
-        document.webkitExitFullscreen();
+            document.webkitExitFullscreen();
         } else if (document.msExitFullscreen) { /* IE11 */
-        document.msExitFullscreen();
+            document.msExitFullscreen();
         }
     }
 }
@@ -224,4 +222,27 @@ closeInfoButton.addEventListener("click", closeInfo);
 function closeInfo() {
     overlay.style.display = "none";
     info.style.display = "none";
+}
+
+// open "you won!" popup thing
+let winPopup = document.getElementById("win-popup");
+function openWinPopup() {
+    overlay.style.display = "block";
+    winPopup.style.display = "flex";
+}
+
+// close it
+function closeWinPopup() {
+    overlay.style.display = "none";
+    winPopup.style.display = "none";
+}
+
+// restart game with button
+let restartButton = document.querySelector("#win-popup > button");
+restartButton.addEventListener("click", restart);
+function restart() {
+    closeWinPopup();
+    createItems(columnCount);
+    size();
+    completedCount = 0;
 }
