@@ -1,6 +1,6 @@
 // game variables
 let gridItemArray = [];
-let columnCount = 6;
+let columnCount = 12;
 let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
