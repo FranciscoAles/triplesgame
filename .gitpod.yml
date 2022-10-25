@@ -1,9 +1,7 @@
-# Start up tasks
-# We want to create two terminals
-# One is for creating the website preview
-# The other is to make the normal terminal that will be used in the project
+# Start up tasks to make things easier:
 tasks:
   - name: Terminal 1
     init: python -m http.server 8000
   - name: Terminal 2
     init: git init
+    command: clear

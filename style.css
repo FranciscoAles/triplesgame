@@ -134,7 +134,7 @@ body {
     border-radius: 10px;
 }
 
-#info-popup > h2, #info-popup > h3, #info-popup > p {
+#info-popup > h2, #info-popup > h3, #info-popup > p, #info-popup > a {
     margin: 20px;
 }
 
