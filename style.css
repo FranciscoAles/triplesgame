@@ -7,8 +7,9 @@
     font-size: inherit;
     cursor: pointer;
     border-radius: 100%;
-    padding: 0.5%;
     transition: background-color 0.2s;
+    color: var(--red);
+    text-decoration: none;
 }
 
 .material-symbols-outlined:hover {
@@ -24,16 +25,25 @@ body {
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
     margin: 0px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: var(--cornerstone);
     align-items: center;
     color: var(--red);
     padding: 0.5%;
+}
+
+#left-icons {
+    margin-left: 3%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #title {
@@ -46,6 +56,12 @@ body {
         1px 1px 0 white;
     font-weight: 900;
     font-size: inherit;
+}
+
+#right-icons {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
 }
 
 #grid-container {

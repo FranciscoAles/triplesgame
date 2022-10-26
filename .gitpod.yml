@@ -1,7 +1,7 @@
 # Start up tasks to make things easier:
 tasks:
   - name: Terminal 1
-    init: python -m http.server 8000
+    init: python3 -m http.server 8000
   - name: Terminal 2
     init: git init
     command: clear
