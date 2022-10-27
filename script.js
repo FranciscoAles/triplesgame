@@ -246,3 +246,12 @@ function restart() {
     size();
     completedCount = 0;
 }
+
+// settings
+settingsButton = document.getElementById("settings-button");
+settingsPopup = document.getElementById("settings-popup");
+settingsButton.addEventListener("click", openSettings);
+function openSettings() {
+    overlay.style.display = "block";
+    settingsPopup.style.display = "block";
+}

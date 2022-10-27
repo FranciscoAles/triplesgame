@@ -143,12 +143,12 @@ body {
     width: 90%;
     height: 90%;
     background-color: white;
+    border: 5px solid var(--red);
+    border-radius: 10px;
 }
 
 #info-popup {
     display: none;
-    border: 5px solid var(--red);
-    border-radius: 10px;
 }
 
 #info-popup > h2, #info-popup > h3, #info-popup > p, #info-popup > a {
@@ -197,4 +197,12 @@ body {
 
 .restart-button:hover {
     opacity: 0.8;
+}
+
+#settings-popup {
+    display: none;
+}
+
+#settings-popup > h1 {
+    text-align: center;
 }
