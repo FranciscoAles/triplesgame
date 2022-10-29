@@ -4,7 +4,4 @@ tasks:
     init: python3 -m http.server 8000
   - name: Terminal 2
     init: git init
-    command: |
-      open index.html
-      open style.css
-      open script.js
+    command: open index.html style.css script.js
