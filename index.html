@@ -17,13 +17,13 @@
     <body>
         <div id="bar">
             <div id="left-icons">
-                <span class="material-symbols-outlined" id="fullscreen-button">fullscreen</span>
-                <span class="material-symbols-outlined" id="settings-button">settings</span>
+                <span class="material-symbols-outlined bar-button" id="fullscreen-button">fullscreen</span>
+                <span class="material-symbols-outlined bar-button" id="settings-button">settings</span>
             </div>
             <h1 id="title">TRIPLES</h1>
             <div id="right-icons">
-                <span class="material-symbols-outlined" id="info-button">info</span>
-                <a class="material-symbols-outlined" target="_blank" href="https://github.com/FranciscoAles/triplesgame">code</a>
+                <span class="material-symbols-outlined bar-button" id="info-button">info</span>
+                <a class="material-symbols-outlined bar-button" target="_blank" href="https://github.com/FranciscoAles/triplesgame">code</a>
             </div>
         </div>
         
@@ -33,11 +33,12 @@
 
         <div class="popup" id="settings-popup">
             <h1>Settings</h1>
+            <span class="material-symbols-outlined close-button">close</span>
         </div>
 
         <div class="popup" id="info-popup">
             <h2>Information on the game</h2>
-            <span class="material-symbols-outlined" id="close-info-button">close</span>
+            <span class="material-symbols-outlined close-button">close</span>
             <hr>
             <h3>How to play</h3>
             <p>The goal of this game is to eliminate all the sets, three sets at a time.</p>
@@ -47,8 +48,9 @@
             <p>Eliminate all the sets, and you'll win.</p>
         </div>
 
-        <div id="win-popup" class="popup">
+        <div class="popup" id="win-popup">
             <h2>YOU'VE WON!</h2>
+            <span class="material-symbols-outlined close-button">close</span>
             <button class="restart-button">Restart</button>
         </div>
         

@@ -4,17 +4,6 @@
         'wght' 400,
         'GRAD' 0,
         'opsz' 48;
-    font-size: inherit;
-    cursor: pointer;
-    border-radius: 100%;
-    padding: 10%;
-    transition: background-color 0.2s;
-    color: var(--red);
-    text-decoration: none;
-}
-
-.material-symbols-outlined:hover {
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
 :root {
@@ -39,6 +28,20 @@ body {
     align-items: center;
     color: var(--red);
     padding: 0.5%;
+}
+
+.bar-button {
+    font-size: inherit;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 10%;
+    transition: background-color 0.2s;
+    color: var(--red);
+    text-decoration: none;
+}
+
+.bar-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #left-icons {
@@ -138,6 +141,7 @@ body {
 
 .popup {
     position: fixed;
+    display: none;
     top: 5%;
     left: 5%;
     width: 90%;
@@ -147,20 +151,22 @@ body {
     border-radius: 10px;
 }
 
-#info-popup {
-    display: none;
-}
-
-#info-popup > h2, #info-popup > h3, #info-popup > p, #info-popup > a {
+.popup > * {
     margin: 20px;
 }
 
-#close-info-button {
+.close-button {
     position: absolute;
     padding: 0.5%;
-    top: 20px;
-    right: 20px;
+    top: 0px;
+    right: 0px;
     font-size: 26px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
 }
 
 #win-popup {
@@ -197,10 +203,6 @@ body {
 
 .restart-button:hover {
     opacity: 0.8;
-}
-
-#settings-popup {
-    display: none;
 }
 
 #settings-popup > h1 {

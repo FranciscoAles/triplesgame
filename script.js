@@ -206,35 +206,19 @@ function fullscreenChange() {
     }
 }
 
-// open info
-let infoButton = document.getElementById("info-button");
-let info = document.getElementById("info-popup");
-let overlay = document.getElementById("overlay");
-infoButton.addEventListener("click", openInfo);
-function openInfo() {
-    overlay.style.display = "block";
-    info.style.display = "block";
-}
+// open a popup function
+function popup(acitvator, popup, closeButton) {
+    activator.addEventListener("click", openPopup);
+    function openPopup() {
+        overlay.style.display = "block";
+        popup.style.display = "block";
+    }
 
-// close info
-let closeInfoButton = document.getElementById("close-info-button");
-closeInfoButton.addEventListener("click", closeInfo);
-function closeInfo() {
-    overlay.style.display = "none";
-    info.style.display = "none";
-}
-
-// open "you won!" popup thing
-let winPopup = document.getElementById("win-popup");
-function openWinPopup() {
-    overlay.style.display = "block";
-    winPopup.style.display = "flex";
-}
-
-// close it
-function closeWinPopup() {
-    overlay.style.display = "none";
-    winPopup.style.display = "none";
+    closeButton.addEventListener("click", closePopup);
+    function closePopup() {
+        overlay.style.display = "none";
+        popup.style.display = "none";
+    }
 }
 
 // restart game with button
@@ -245,13 +229,4 @@ function restart() {
     createItems(columnCount);
     size();
     completedCount = 0;
-}
-
-// settings
-settingsButton = document.getElementById("settings-button");
-settingsPopup = document.getElementById("settings-popup");
-settingsButton.addEventListener("click", openSettings);
-function openSettings() {
-    overlay.style.display = "block";
-    settingsPopup.style.display = "block";
 }
