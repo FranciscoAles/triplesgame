@@ -10,25 +10,27 @@ let grid = document.getElementById("grid-container");
 let bar = document.getElementById("bar");
 
 // each item of the grid needs its own properties and stuff
-function gridItem(element, x, y, checkbox, label) {
-    this.item = element;
-    this.x = x;
-    this.y = y;
-    this.checkbox = checkbox;
-    this.label = label;
-    
-    this.checkbox.addEventListener("input", itemChecked);
-    
-    this.disable = function() {
-        this.label.style.animation = "disable 0.5s forwards";
-        this.checkbox.disabled = true;
-        this.label.style.cursor = "default";
-        completedCount++;
-        
-        if (completedCount == gridItemArray.length) {
-            openWinPopup();
-        }
-    };
+class gridItem {
+    constructor(element, x, y, checkbox, label) {
+        this.item = element;
+        this.x = x;
+        this.y = y;
+        this.checkbox = checkbox;
+        this.label = label;
+
+        this.checkbox.addEventListener("input", itemChecked);
+
+        this.disable = function () {
+            this.label.style.animation = "disable 0.5s forwards";
+            this.checkbox.disabled = true;
+            this.label.style.cursor = "default";
+            completedCount++;
+
+            if (completedCount == gridItemArray.length) {
+                openWinPopup();
+            }
+        };
+    }
 }
 
 // we need to create the items every time the game restarts
@@ -206,20 +208,40 @@ function fullscreenChange() {
     }
 }
 
-// open a popup function
-function popup(acitvator, popup, closeButton) {
-    activator.addEventListener("click", openPopup);
-    function openPopup() {
-        overlay.style.display = "block";
-        popup.style.display = "block";
-    }
+// dark thing (like a shadow)
+let overlay = document.getElementById("overlay");
 
-    closeButton.addEventListener("click", closePopup);
-    function closePopup() {
-        overlay.style.display = "none";
-        popup.style.display = "none";
+// Popup object
+class Popup {
+    constructor(popup, activator) {
+        this.popup = popup;
+
+        if (activator != undefined) {
+            this.activator = activator;
+            this.activator.addEventListener("click", this.openPopup);
+        }
+
+        this.openPopup = function () {
+            overlay.style.display = "block";
+            popup.style.display = "block";
+        };
+
+        this.closeButton = document.createElement("span");
+        this.closeButton.classList.add("material-symbols-outlined");
+        this.closeButton.classList.add("close-button");
+        this.closeButton.textContent = "close";
+
+        popup.appendChild(this.closeButton);
+
+        this.closeButton.addEventListener("click", this.closePopup);
+        this.closePopup = function () {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+        };
     }
 }
+
+info = new Popup(document.getElementById("info-popup"), document.getElementById("info-button"));
 
 // restart game with button
 let restartButton = document.querySelector("#win-popup > button");

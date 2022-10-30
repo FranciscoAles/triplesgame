@@ -4,3 +4,4 @@ tasks:
     init: python3 -m http.server 8000
   - name: Terminal 2
     init: git init
+    command: clear
