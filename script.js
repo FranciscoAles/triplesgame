@@ -1,6 +1,6 @@
 // game variables
 let gridItemArray = [];
-let columnCount = 12;
+let columnCount = 6;
 let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
@@ -27,7 +27,7 @@ class gridItem {
             completedCount++;
 
             if (completedCount == gridItemArray.length) {
-                openWinPopup();
+                winPopup.openPopup();
             }
         };
     }
@@ -99,10 +99,11 @@ function size() {
     }
 }
 
+// size everything
 window.addEventListener("resize", size);
-size();
-// just in case, let's do it again
-size();
+document.body.onload = function() {
+    size();
+}
 
 // this function is called when any input is checked
 function itemChecked(event) {
@@ -218,7 +219,6 @@ class Popup {
 
         if (activator != undefined) {
             this.activator = activator;
-            this.activator.addEventListener("click", this.openPopup);
         }
 
         this.openPopup = function () {
@@ -233,7 +233,6 @@ class Popup {
 
         popup.appendChild(this.closeButton);
 
-        this.closeButton.addEventListener("click", this.closePopup);
         this.closePopup = function () {
             overlay.style.display = "none";
             popup.style.display = "none";
@@ -241,13 +240,25 @@ class Popup {
     }
 }
 
-info = new Popup(document.getElementById("info-popup"), document.getElementById("info-button"));
+function intoPopup(p, a) {
+    createdPopup = new Popup(p, a);
+    if (createdPopup.activator != undefined) {
+        createdPopup.activator.addEventListener("click", createdPopup.openPopup);
+    }
+    createdPopup.closeButton.addEventListener("click", createdPopup.closePopup);
+    return createdPopup;
+}
+
+// popups
+let infoPopup = intoPopup(document.getElementById("info-popup"), document.getElementById("info-button"));
+let settingsPopup = intoPopup(document.getElementById("settings-popup"), document.getElementById("settings-button"));
+let winPopup = intoPopup(document.getElementById("win-popup"));
+winPopup.openPopup();
 
 // restart game with button
 let restartButton = document.querySelector("#win-popup > button");
 restartButton.addEventListener("click", restart);
 function restart() {
-    closeWinPopup();
     createItems(columnCount);
     size();
     completedCount = 0;
